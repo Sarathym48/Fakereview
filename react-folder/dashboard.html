@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Review Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      .card {
+        background-color: #e6ffe6;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 800px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .reviews {
+        margin-top: 20px;
+      }
+      .review {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Product Review Dashboard</h1>
+
+    <div class="card" id="summary">
+      <h2>Reliability Grade: <span id="grade">Loading...</span></h2>
+      <p>Average Score: <span id="avgScore">Loading...</span></p>
+    </div>
+
+    <div class="card reviews" id="reviews">
+      <h3>Top 5 Reviews</h3>
+      <div id="reviewList">Loading reviews...</div>
+    </div>
+
+    <script>
+      fetch("http://127.0.0.1:5000/get_latest_reviews")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          document.getElementById("grade").textContent = data.grade;
+          document.getElementById("avgScore").textContent = data.average_score;
+
+          const reviewList = document.getElementById("reviewList");
+          reviewList.innerHTML = "";
+
+          data.top_reviews.forEach((review, index) => {
+            const div = document.createElement("div");
+            div.className = "review";
+            div.innerHTML = `
+              <strong>Review ${index + 1}:</strong><br/>
+              <em>${review["Review"]}</em><br/>
+              <strong>Score:</strong> ${review["Final Score"]}
+            `;
+            reviewList.appendChild(div);
+          });
+        })
+        .catch((error) => {
+          console.error("Failed to load reviews:", error);
+          document.getElementById("grade").textContent = "Error";
+          document.getElementById("avgScore").textContent = "N/A";
+          document.getElementById("reviewList").textContent =
+            "Failed to load reviews.";
+        });
+    </script>
+  </body>
+</html>
