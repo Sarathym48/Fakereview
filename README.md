@@ -1,10 +1,10 @@
-# 🛒 Fake Review Detection in E-Commerce Applications
+#  Fake Review Detection in E-Commerce Applications
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![ML](https://img.shields.io/badge/machine--learning-XGBoost%2C%20RandomForest-success)
 
-## 📌 Overview
+##  Overview
 
 This project proposes a **multi-criteria fake review detection system** that leverages **machine learning and contextual analysis** to identify deceptive content on e-commerce platforms. With the rise of fake reviews, the system aims to restore trust and transparency in online product feedback.
 
@@ -17,20 +17,20 @@ An interactive **Flask API backend** and potential browser extension/UI allow re
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 🔍 **Fake vs. Real Classification**
-- 📊 **Credibility Scoring (Regression)**
-- 🔁 **Contextual Review Scoring**
-- 🧠 **Advanced Feature Engineering**
-- ⚙️ **TF-IDF, VADER Sentiment, POS analysis**
-- 📈 **Product-Level Reliability Grading (A–E)**
-- 🌐 **Flask Backend for Real-Time Deployment**
-- 📑 **Dashboard / Browser Extension Integration**
+-  **Fake vs. Real Classification**
+-  **Credibility Scoring (Regression)**
+-  **Contextual Review Scoring**
+-  **Advanced Feature Engineering**
+-  **TF-IDF, VADER Sentiment, POS analysis**
+-  **Product-Level Reliability Grading (A–E)**
+-  **Flask Backend for Real-Time Deployment**
+-  **Dashboard / Browser Extension Integration**
 
 ---
 
-## 🧠 Machine Learning Models
+##  Machine Learning Models
 
 | Task                         | Model             | Accuracy / R² Score |
 |------------------------------|-------------------|---------------------|
@@ -40,7 +40,7 @@ An interactive **Flask API backend** and potential browser extension/UI allow re
 
 ---
 
-## 🔧 Technologies Used
+##  Technologies Used
 
 - **Python 3.8+**
 - **Scikit-learn**
@@ -53,7 +53,7 @@ An interactive **Flask API backend** and potential browser extension/UI allow re
 
 ---
 
-## 🛠️ System Architecture
+## 🛠 System Architecture
 
 ```mermaid
 flowchart TD
@@ -67,3 +67,4 @@ flowchart TD
     D --> E[Final Score + Grade + Top 5 Reviews]
     E --> F[Flask API JSON Output & CSV]
     F --> G[Dashboard / Browser Extension]
+
