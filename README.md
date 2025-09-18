@@ -53,7 +53,7 @@ An interactive **Flask API backend** and potential browser extension/UI allow re
 
 ---
 
-## 🛠 System Architecture
+##  System Architecture
 
 ```mermaid
 flowchart TD
@@ -67,4 +67,5 @@ flowchart TD
     D --> E[Final Score + Grade + Top 5 Reviews]
     E --> F[Flask API JSON Output & CSV]
     F --> G[Dashboard / Browser Extension]
+
 
